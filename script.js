@@ -6,9 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const formattedDate = now.toLocaleDateString();
     const formattedTime = now.toLocaleTimeString();
 
-    timerElement.textContent = `Current Date and Time: ${formattedDate} ${formattedTime}`;
+    if (timerElement) {
+      timerElement.textContent = `Current Date and Time: ${formattedDate} ${formattedTime}`;
+    }
   }
 
-  setInterval(updateTimer, 1000); // Update every second
-  updateTimer(); // Initial call
+  // Call updateTimer initially
+  updateTimer();
+
+  // Set an interval to update the timer every second
+  setInterval(updateTimer, 1000);
 });
